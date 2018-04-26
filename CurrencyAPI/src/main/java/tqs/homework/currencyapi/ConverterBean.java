@@ -10,7 +10,6 @@ import java.util.HashMap;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.validation.constraints.DecimalMin;
  
 
@@ -20,20 +19,20 @@ import javax.validation.constraints.DecimalMin;
  */
 
 @ManagedBean(name="converterBean")
-@SessionScoped
+@ApplicationScoped
 
 public class ConverterBean implements Serializable {
     
     private double amount, result;
     private String from, to;
-    private ConvertResponse convert;
+    private ConvertResponse c;
     private HashMap<String, String> currencies;
     
     
     @PostConstruct
     public void init(){
-        convert =  new ConvertResponse();
-        currencies = convert.getList();
+        c =  new ConvertResponse();
+        currencies = c.getList();
     }
 
     @DecimalMin(value="0.0")
@@ -80,8 +79,8 @@ public class ConverterBean implements Serializable {
     }
         
     public String conversion(){
-        result = convert.convert(amount, from, to);
-        setResult(result);
+        double r = c.convert(amount, from, to);
+        setResult(r);
         return "index.xhtml";
     }
     

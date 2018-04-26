@@ -50,17 +50,17 @@ public class DataAPI{
 
             // the following line converts the JSON Response to an equivalent Java Object
             JSONObject exchangeRates = new JSONObject(EntityUtils.toString(entity));
-
             JSONObject quotes = exchangeRates.getJSONObject("quotes");
 
             Iterator jsonList = quotes.keys();
 
             while(jsonList.hasNext()){
                 String s = jsonList.next().toString().replace("USD", "");
-                if(s.equals(""))
-                    listExchange.put(s,quotes.getDouble(s));
+                if(!s.equals(""))
+                    listExchange.put(s,quotes.getDouble("USD"+s));
             }
             listExchange.put("USD", 1.0);
+            
             response.close();
                 
         } catch (ClientProtocolException e) {

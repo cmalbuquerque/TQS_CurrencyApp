@@ -20,21 +20,17 @@
                 <p style="font-size: medium; font-family: sans-serif">
                     From   
                     <h:selectOneMenu id="curreciesFrom" value="#{converterBean.from}">
-                        <c:forEach var="curr" items="#{converterBean.listCurrencies}">
-                            <f:selectItems itemValue="${curr}" itemLabel="${curr}"/>
-                        </c:forEach>
+                            <f:selectItems value="#{converterBean.listCurrencies}"/>
                     </h:selectOneMenu>
                 </p>
 
                 <p style="font-size: medium; font-family: sans-serif">
                     To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <h:selectOneMenu id="curreciesFrom" value="#{converterBean.to}">
-                        <c:forEach var="curr" items="#{converterBean.listCurrencies}">
-                            <f:selectItems itemValue="${curr}" itemLabel="${curr}"/>
-                        </c:forEach>
+                    <h:selectOneMenu id="curreciesTo" value="#{converterBean.to}">
+                            <f:selectItems value="#{converterBean.listCurrencies}"/>
                     </h:selectOneMenu>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button value="Converter" style="align-self: center" action="">Convert</button>
+                    <h:commandButton value="Converter" style="align-self: center" action="#{converterBean.conversion()}"/>
                 </p>
 
                 <p style="font-size: medium; font-family: sans-serif">
