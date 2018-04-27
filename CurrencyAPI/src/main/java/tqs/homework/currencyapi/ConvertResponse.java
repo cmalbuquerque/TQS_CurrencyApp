@@ -4,6 +4,10 @@ package tqs.homework.currencyapi;
 
 import java.util.HashMap;
 
+/**
+ *
+ * @author carolina albuquerque
+ */
 
 public class ConvertResponse{
     
@@ -12,11 +16,9 @@ public class ConvertResponse{
     private HashMap<String, Double> dt = data.getData();
 
     public double convert(double amount, String from, String to) {
-        result = amount *(dt.get(from)/dt.get(to));
-        System.out.println("***" + result);           
+        result = amount *(dt.get(to)/dt.get(from));         
         return result;
     }
-    
     
 
     public HashMap<String, String> getList() {

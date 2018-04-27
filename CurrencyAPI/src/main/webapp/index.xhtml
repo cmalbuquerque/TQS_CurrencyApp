@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Currency Layer</title>
     </h:head>
@@ -14,28 +13,29 @@
                 <p style="color: dimgray; font-size: large; font-family: sans-serif">Currency Layer</p>
                 <p style="font-size: medium; font-family: sans-serif">
                     Value 
-                    <input type="text" name="amount" value="#{converterBean.amount}" />
+                    <h:inputText value="${converterBean.amount}" />
                 </p>
 
                 <p style="font-size: medium; font-family: sans-serif">
                     From   
                     <h:selectOneMenu id="curreciesFrom" value="#{converterBean.from}">
-                            <f:selectItems value="#{converterBean.listCurrencies}"/>
+                            <f:selectItems value="#{converterBean.currencies}"/>
                     </h:selectOneMenu>
                 </p>
 
                 <p style="font-size: medium; font-family: sans-serif">
                     To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <h:selectOneMenu id="curreciesTo" value="#{converterBean.to}">
-                            <f:selectItems value="#{converterBean.listCurrencies}"/>
+                            <f:selectItems value="#{converterBean.currencies}"/>
                     </h:selectOneMenu>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <h:commandButton value="Converter" style="align-self: center" action="#{converterBean.conversion()}"/>
+                    
+                    <h:commandButton value="Convert" style="align-self: center" action='${converterBean.conversion()}'/>
                 </p>
 
                 <p style="font-size: medium; font-family: sans-serif">
                     Result
-                    <p value="#{converterBean.result}"></p>
+                    <h:inputText disabled="true" value="${converterBean.result}"/>
                 </p>
             </p:panel>
         </h:form>

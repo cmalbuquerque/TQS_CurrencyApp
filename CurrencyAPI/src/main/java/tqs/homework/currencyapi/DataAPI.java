@@ -26,24 +26,24 @@ import org.json.JSONObject;
 
 public class DataAPI{
 	
+    // Code from the documentation example
     // essential URL structure is built using constants 
     public static final String ACCESS_KEY = "62075c362bd52b0c53647304152e57e4";
     public static final String BASE_URL = "http://apilayer.net/api/";
     public static final String ENDPOINT = "live";
     public static final String FORMAT = "1";
+    
+    
     public static double result;
     
     // this object is used for executing requests to the (REST) API
     static CloseableHttpClient httpClient = HttpClients.createDefault();
     
-
     public HashMap<String, Double> getData() {
         
         HashMap<String,Double> listExchange = new HashMap<>();
-        
         // The following line initializes the HttpGet Object with the URL in order to send a request
         HttpGet get = new HttpGet(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY + "&format=" + FORMAT);
-
         try {
             CloseableHttpResponse response =  httpClient.execute(get);
             HttpEntity entity = response.getEntity();
@@ -62,7 +62,6 @@ public class DataAPI{
             listExchange.put("USD", 1.0);
             
             response.close();
-                
         } catch (ClientProtocolException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

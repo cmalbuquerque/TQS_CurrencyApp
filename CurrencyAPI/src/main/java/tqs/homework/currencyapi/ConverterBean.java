@@ -35,7 +35,7 @@ public class ConverterBean implements Serializable {
         currencies = c.getList();
     }
 
-    @DecimalMin(value="0.0")
+    //@DecimalMin(value="0.0")
     public String getFrom() {
         return from;
     }
@@ -70,11 +70,11 @@ public class ConverterBean implements Serializable {
     }
     
 
-    public HashMap<String, String> getListCurrencies() { 
+    public HashMap<String, String> getCurrencies() { 
         return currencies;
-    }
+    }    
 
-    public void setListCurrencies(HashMap<String, String> currencies) {
+    public void setCurrencies(HashMap<String, String> currencies) {
         this.currencies = currencies;
     }
         
