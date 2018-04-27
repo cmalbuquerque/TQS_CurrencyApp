@@ -6,7 +6,6 @@
 package tqs.homework.currencyapi;
 
 import java.util.HashMap;
-import org.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,17 +43,28 @@ public class ConvertResponseTest {
      */
     @Test
     public void testConvert() {
-        System.out.println("Convert Test");
+        System.out.println("convert");
         double amount = 1.0;
         String from = "EUR";
         String to = "USD";
         ConvertResponse instance = new ConvertResponse();
-        double expResult = 1.2113811683529092;
+        double expResult = 1.2131446650750208;
         double result = instance.convert(amount, from, to);
-        assertEquals(expResult, result, 1.2113811683529092);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, 1.2131446650750208);
+    }
+
+    /**
+     * Test of getList method, of class ConvertResponse.
+     */
+    @Test
+    public void testGetList() {
+        System.out.println("getList");
+        ConvertResponse instance = new ConvertResponse();
+        HashMap<String, String> expResult = new HashMap<>();
+        expResult.put("EUR", "EUR");
+        expResult.put("USD", "USD");
+        HashMap<String, String> result = instance.getList();
+        assertEquals(expResult.containsKey(result), expResult.containsValue(result));
     }
     
 }
-
