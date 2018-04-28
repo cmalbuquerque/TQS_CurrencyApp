@@ -15,9 +15,6 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
-
 /**
  *
  * @author carolina albuquerque

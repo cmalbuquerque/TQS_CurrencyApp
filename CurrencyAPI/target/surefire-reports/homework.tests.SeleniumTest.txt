@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: tqs.homework.currencyapi.DataAPITest
+Test set: homework.tests.SeleniumTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.453 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.395 sec

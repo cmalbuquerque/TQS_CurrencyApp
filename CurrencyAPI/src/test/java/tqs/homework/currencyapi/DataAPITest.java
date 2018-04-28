@@ -6,6 +6,7 @@
 package tqs.homework.currencyapi;
 
 import java.util.HashMap;
+import org.easymock.EasyMock;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,9 +16,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author carolina
+ * @author carolina albuquerque
  */
 public class DataAPITest {
+
+    private DataAPI instance, apiMock;
     
     public DataAPITest() {
     }
@@ -32,6 +35,8 @@ public class DataAPITest {
     
     @Before
     public void setUp() {
+        this.instance = new DataAPI();
+        this.apiMock = EasyMock.createMock(DataAPI.class);
     }
     
     @After
@@ -44,7 +49,15 @@ public class DataAPITest {
     @Test
     public void testGetData() {
         System.out.println("getData");
-        DataAPI instance = new DataAPI();
+        
+        EasyMock.expect(apiMock.getData()).andReturn(new HashMap<String,Double>(){{
+            put("EUR", 0.824304);
+            put("USD", 1.0);
+        }}
+        );
+        EasyMock.replay(apiMock);
+        
+        //DataAPI instance = new DataAPI();
         HashMap<String, Double> expResult = new HashMap<>();
         expResult.put("EUR", 0.824304);
         expResult.put("USD", 1.0);
